@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Study Save</title>
+
+  <script>
+    const params = new URLSearchParams(location.search);
+    const scriptId = params.get("scriptId") || "01";
+
+    const appUrl = `studysave://ear?scriptId=${encodeURIComponent(scriptId)}`;
+
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        location.href = appUrl;
+      }, 300);
+    });
+  </script>
+
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 40px 20px;
+      background: #f5fff9;
+      color: #164d3b;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 24px;
+      padding: 16px 24px;
+      border-radius: 14px;
+      background: #17b96b;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Study Save 🌱</h1>
+  <p>耳学習を開いています…</p>
+
+  <a id="openApp" href="#">
+    🎧 Study Saveで聞く
+  </a>
+
+  <script>
+    document.getElementById("openApp").href = appUrl;
+  </script>
+</body>
+</html>
